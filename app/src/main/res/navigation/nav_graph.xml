@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ContactListFragment">
+
+    <fragment
+        android:id="@+id/AddContactFragment"
+        android:name="com.vogella.android.crudtesting.ui.AddContactFragment"
+        tools:layout="@layout/fragment_add_contact">
+
+        <action
+            android:id="@+id/action_AddNameFragment_to_ContactListFragment"
+            app:destination="@id/ContactListFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/ContactListFragment"
+        android:name="com.vogella.android.crudtesting.ui.ContactListFragment"
+        tools:layout="@layout/fragment_contact_list">
+        <action
+            android:id="@+id/action_NamesFragment_to_AddNameFragment"
+            app:destination="@id/AddContactFragment"
+            />
+        <action
+            android:id="@+id/action_ContactListFragment_to_EditContactFragment"
+            app:destination="@id/EditContactFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/EditContactFragment"
+        android:name="com.vogella.android.crudtesting.ui.EditContactFragment"
+        tools:layout="@layout/fragment_contact_list">
+        <action
+            android:id="@+id/action_EditContactFragment_to_ContactListFragment"
+            app:destination="@id/ContactListFragment"
+            />
+        <argument
+            android:name="contact"
+            app:argType="com.vogella.android.crudtesting.model.Contacts" />
+    </fragment>
+
+</navigation>
